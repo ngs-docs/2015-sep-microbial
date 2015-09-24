@@ -49,11 +49,11 @@ files on your computer locally under the directory /mnt/data::
 
    mkdir /mnt/data
 
-Next, let's grab part of the data set::
+Next, let's grab the data set::
 
    cd /mnt/data
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R1_001.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R2_001.extract.fastq.gz
+   curl -O -L https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/ECOLI_R1.fastq.gz
+   curl -O -L https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/ECOLI_R2.fastq.gz
 
 Now if you type::
 
@@ -61,12 +61,12 @@ Now if you type::
 
 you should see something like::
 
-   -r--r--r-- 1 ubuntu ubuntu   7874107 Dec 14  2013 0Hour_ATCACG_L002_R1_001.extract.fastq.gz
-   -r--r--r-- 1 ubuntu ubuntu   7972058 Dec 14  2013 0Hour_ATCACG_L002_R1_002.extract.fastq.gz
-   ...
+  -rw-rw-r-- 1 ubuntu ubuntu 418068323 Sep 24 15:04 ECOLI_R1.fastq.gz
+  -rw-rw-r-- 1 ubuntu ubuntu 429978135 Sep 24 15:05 ECOLI_R2.fastq.gz
 
-These are subsets of the original data, where we selected for reads
-that belong to a few particular transcripts.
+These are each 5m read subsets of the original data.  This is analogous
+to what you would see if you did a HiSeq or MiSeq run on a bacterial
+sample.
 
 One problem with these files is that they are writeable - by default, UNIX
 makes things writeable by the file owner.  Let's fix that before we go
@@ -92,15 +92,13 @@ linking it in -- ::
 
 These are FASTQ files -- let's take a look at them::
 
-   less 0Hour_ATCACG_L002_R1_001.extract.fastq.gz
+   less ECOLI_R1.fastq.gz
 
 (use the spacebar to scroll down, and type 'q' to exit 'less')
 
 Question:
 
-* why do the files have DNA in the name?
 * why are there R1 and R2 in the file names?
-* why don't we combine all the files?
 
 Links:
 
@@ -116,8 +114,8 @@ that's what the 'apt-get install' did, above.
 
 Now, run FastQC on two files::
 
-   fastqc 0Hour_ATCACG_L002_R1_001.extract.fastq.gz
-   fastqc 0Hour_ATCACG_L002_R2_001.extract.fastq.gz
+   fastqc ECOLI_R1.fastq.gz
+   fastqc ECOLI_R1.fastq.gz
 
 Now type 'ls'::
 
@@ -125,11 +123,7 @@ Now type 'ls'::
 
 to list the files, and you should see::
 
-
-   0Hour_ATCACG_L002_R1_001.extract_fastqc
-   0Hour_ATCACG_L002_R1_001.extract_fastqc.zip
-   0Hour_ATCACG_L002_R2_001.extract_fastqc
-   0Hour_ATCACG_L002_R2_001.extract_fastqc.zip
+   ECOLI_R1
 
 We are *not* going to show you how to look at these files right now -
 you need to copy them to your local computer to do that.  We'll show
@@ -149,6 +143,8 @@ Links:
 * `FastQC <http://www.bioinformatics.babraham.ac.uk/projects/fastqc/>`__
 * `FastQC tutorial video <http://www.youtube.com/watch?v=bz93ReOv87Y>`__
 
+See `slide 39 and onwards <http://angus.readthedocs.org/en/2015/_static/2015-lecture2-sequencing.pptx.pdf>`__ for what BAD FastQC reports look like!
+
 4. Trimmomatic
 --------------
 
@@ -162,10 +158,8 @@ The first thing we'll need are the adapters to trim off::
 
 Now, to run Trimmomatic::
 
-   TrimmomaticPE 0Hour_ATCACG_L002_R1_001.extract.fastq.gz \
-                 0Hour_ATCACG_L002_R2_001.extract.fastq.gz \
-        0Hour_ATCACG_L002_R1_001.qc.fq.gz s1_se \
-        0Hour_ATCACG_L002_R2_001.qc.fq.gz s2_se \
+   TrimmomaticPE ECOLI_R1.fastq.gz ECOLI_R2.fastq.gz \
+        ECOLI_R1.qc.fq.gz s1_se ECOLI_R2.qc.fq.gz s2_se \
         ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
         LEADING:2 TRAILING:2 \                            
         SLIDINGWINDOW:4:2 \
@@ -174,9 +168,12 @@ Now, to run Trimmomatic::
 You should see output that looks like this::
 
    ...
-   Quality encoding detected as phred33
-   Input Read Pairs: 140557 Both Surviving: 138775 (98.73%) Forward Only Surviving: 1776 (1.26%) Reverse Only Surviving: 6 (0.00%) Dropped: 0 (0.00%)
-   TrimmomaticPE: Completed successfully   ...
+   Input Read Pairs: 5000000 Both Surviving: 4991513 (99.83%) Forward Only Surviving: 7422 (0.15%) Reverse Only Surviving: 782 (0.02%) Dropped: 283 (0.01%)
+   TrimmomaticPE: Completed successfully
+
+Capture the newly orphaned sequences like so::
+
+   cat s1_se s2_se | gzip > ECOLI_orphans.qc.fq.gz
 
 Questions:
 
@@ -188,10 +185,6 @@ Questions:
 * What's with these annoyingly long and complicated filenames?
 * why are we running R1 and R2 together?
 
-For a discussion of optimal RNAseq trimming strategies, see `MacManes,
-2014
-<http://journal.frontiersin.org/Journal/10.3389/fgene.2014.00013/abstract>`__.
-
 Links:
 
 * `Trimmomatic <http://www.usadellab.org/cms/?page=trimmomatic>`__
@@ -201,8 +194,9 @@ Links:
 
 Run FastQC again on the trimmed files::
 
-   fastqc 0Hour_ATCACG_L002_R1_001.qc.fq.gz
-   fastqc 0Hour_ATCACG_L002_R2_001.qc.fq.gz
+   fastqc ECOLI_R1.qc.fq.gz
+   fastqc ECOLI_R2.qc.fq.gz
+   fastqc ECOLI_orphans.qc.fq.gz
 
 And now view my copies of these files: 
 
@@ -211,7 +205,7 @@ And now view my copies of these files:
 
 Let's take a look at the output files::
 
-   less 0Hour_ATCACG_L002_R1_001.qc.fq.gz
+   less ECOLI_R1.qc.fq.gz
 
 (again, use spacebar to scroll, 'q' to exit less).
 
@@ -220,122 +214,27 @@ Questions:
 * is the quality trimmed data "better" than before?
 * Does it matter that you still have adapters!?
 
-6. Trim the rest of the sequences
----------------------------------
-
-First download the rest of the data::
-
-   cd /mnt/data
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R1_002.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R1_003.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R1_004.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R1_005.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R2_002.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R2_003.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R2_004.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/0Hour_ATCACG_L002_R2_005.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R1_001.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R1_002.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R1_003.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R1_004.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R1_005.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R2_001.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R2_002.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R2_003.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R2_004.extract.fastq.gz
-   curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-non-2015-05-04/6Hour_CGATGT_L002_R2_005.extract.fastq.gz
-
-And link it in::
-
-   cd /mnt/work
-   ln -fs /mnt/data/*.fastq.gz .
-
-Now we have a lot of files -- and we really don't want to trim each and
-every one of them by typing in a command for each pair! Here we'll
-make use of a great feature of the UNIX command line -- the ability to
-automate such tasks.
-
-Here's a for loop that you can run - we'll walk through what it does
-while it's running::
-
-  rm -f orphans.fq
-
-  for filename in *_R1_*.extract.fastq.gz
-  do
-        # first, make the base by removing .extract.fastq.gz
-        base=$(basename $filename .extract.fastq.gz)
-        echo $base
-
-        # now, construct the R2 filename by replacing R1 with R2
-        baseR2=${base/_R1_/_R2_}
-        echo $baseR2
-
-        # finally, run Trimmomatic
-        TrimmomaticPE ${base}.extract.fastq.gz ${baseR2}.extract.fastq.gz \
-           ${base}.qc.fq.gz s1_se \
-           ${baseR2}.qc.fq.gz s2_se \
-           ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
-           LEADING:2 TRAILING:2 \                            
-           SLIDINGWINDOW:4:2 \
-           MINLEN:25
-
-        # save the orphans
-        cat s1_se s2_se >> orphans.fq
-  done
-
-Things to mention --
-
-* # are comments;
-* anywhere you see a '$' is replaced by the value of the variable
-  after it, so e.g. $filename is replaced by each of the files
-  matching *_R1_*.extract.fastq.gz, once for each time through the
-  loop;
-* we have to do complicated things to the filenames to get this to work, which
-  is what the ${base/_R1_/_R2_} stuff is about.
-* what's with 'orphans.fq'??
-
-Questions:
-
-* how do you figure out if it's working?
-   - copy/paste it from Word
-   - put in lots of echo
-   - edit one line at a time
-* how on earth do you figure out how to do this?!
-
-7. Interleave the sequences
+6. Interleave the sequences
 ---------------------------
 
 Next, we need to take these R1 and R2 sequences and convert them into
-interleaved form ,for the next step.  To do this, we'll use scripts
+interleaved form, for the next step.  To do this, we'll use scripts
 from the `khmer package <http://khmer.readthedocs.org>`__, which we
 need to install::
 
-  sudo pip install -U setuptools
-  sudo pip install khmer==1.3
+   sudo pip install -U setuptools
+   sudo pip install khmer==2.0
 
-Now let's use a for loop again - you might notice this is only a minor
-modification of the previous for loop... ::
+Now, interleave the reads::
 
-  for filename in *_R1_*.qc.fq.gz
-  do
-        # first, make the base by removing .extract.fastq.gz
-        base=$(basename $filename .qc.fq.gz)
-        echo $base
+   interleave-reads.py ECOLI_R1.qc.fq.gz ECOLI_R2.qc.fq.gz --gzip \
+      -o ecoli_ref-5m-trim.pe.fq.gz
 
-        # now, construct the R2 filename by replacing R1 with R2
-        baseR2=${base/_R1_/_R2_}
-        echo $baseR2
+and rename the orphans::
 
-        # construct the output filename
-        output=${base/_R1_/}.pe.qc.fq.gz
+   cp ECOLI_orphans.qc.fq.gz ecoli_ref-5mtrim.se.fq.gz
 
-        interleave-reads.py ${base}.qc.fq.gz ${baseR2}.qc.fq.gz | \
-            gzip > $output
-  done
+Done!
 
-  gzip orphans.fq
-
-----
-   
 Next: :doc:`assembling-ecoli`
 
