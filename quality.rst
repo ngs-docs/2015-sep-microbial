@@ -233,7 +233,7 @@ Now, interleave the reads::
 
 and rename the orphans::
 
-   cp ECOLI_orphans.qc.fq.gz ecoli_ref-5mtrim.se.fq.gz
+   cp ECOLI_orphans.qc.fq.gz ecoli_ref-5m-trim.se.fq.gz
 
 Done!
 
