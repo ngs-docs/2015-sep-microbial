@@ -24,7 +24,7 @@ to set the permissions on the private key file to "closed to all evildoers".
 
 Then type::
 
-  ssh -i ~/Desktop/amazon.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
+  ssh -i ~/Downloads/amazon.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
 
 
 Here, you're logging in as user 'ubuntu' to the machine
