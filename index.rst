@@ -15,7 +15,9 @@ for more information, or `contact Titus directly
 .. toctree::
    :maxdepth: 2
 
+   welcome
    amazon/index
+   genomics
    transcriptomics
 
 Indices and tables

@@ -28,7 +28,6 @@ A final checklist:
 
 - You have a green EC2 instance!
 - You used ubuntu 14.04;
-- You're in US East (Virginia);
 - You didn't start a micro instance (m3.xlarge, or bigger);
 
 Amazon Web Services reference material
@@ -37,3 +36,7 @@ Amazon Web Services reference material
 `Instance types <http://aws.amazon.com/ec2/instance-types/>`__
 
 `Instance costs <http://aws.amazon.com/ec2/pricing/>`__
+
+----
+
+Next: :doc:`../quality`
