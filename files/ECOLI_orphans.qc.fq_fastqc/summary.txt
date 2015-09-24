@@ -1,0 +1,11 @@
+PASS	Basic Statistics	ECOLI_orphans.qc.fq.gz
+FAIL	Per base sequence quality	ECOLI_orphans.qc.fq.gz
+PASS	Per sequence quality scores	ECOLI_orphans.qc.fq.gz
+PASS	Per base sequence content	ECOLI_orphans.qc.fq.gz
+PASS	Per base GC content	ECOLI_orphans.qc.fq.gz
+PASS	Per sequence GC content	ECOLI_orphans.qc.fq.gz
+PASS	Per base N content	ECOLI_orphans.qc.fq.gz
+WARN	Sequence Length Distribution	ECOLI_orphans.qc.fq.gz
+PASS	Sequence Duplication Levels	ECOLI_orphans.qc.fq.gz
+WARN	Overrepresented sequences	ECOLI_orphans.qc.fq.gz
+WARN	Kmer Content	ECOLI_orphans.qc.fq.gz

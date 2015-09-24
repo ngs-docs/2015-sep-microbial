@@ -115,7 +115,7 @@ that's what the 'apt-get install' did, above.
 Now, run FastQC on two files::
 
    fastqc ECOLI_R1.fastq.gz
-   fastqc ECOLI_R1.fastq.gz
+   fastqc ECOLI_R2.fastq.gz
 
 Now type 'ls'::
 

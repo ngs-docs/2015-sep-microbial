@@ -134,7 +134,9 @@ the Nanopore command line flag::
 
    spades.py --sc --12 ecoli_ref-5m-trim.pe.fq.gz -s ecoli_ref-5m-trim.se.fq.gz --nanopore FC20.wf1.9.2D.pass.fasta.gz -o nanopore-ecoli-sc
 
-How'd we do?
+How'd we do? ::
+
+   ~/quast-3.0/quast.py -R ecoliMG1655.fa nanopore-ecoli-sc/scaffolds.fasta -o n_report
 
 Reference-free comparison
 =========================
@@ -151,12 +153,12 @@ as a reference.
 Let's try that, using ``extract-long-sequences.py`` from `khmer
 <http://khmer.readthedocs.org>`__::
 
-   extract-long-sequences.py -l 1000 spades-assembly.fa > spades-long.fa
+   extract-long-sequences.py -l 1000 nanopore-ecoli-sc/scaffolds.fasta > spades-long.fa
 
 and then re-run QUAST and put the output in ``report-noref/report.txt``::
 
-   ~/quast-3.0/quast.py -R spades-long.fa spades-assembly.fa \
-            megahit-assembly.fa -o report-noref
+   ~/quast-3.0/quast.py -R spades-long.fa spades.d/scaffolds.fasta \
+            nanopore-ecoli-sc/scaffolds.fasta -o report-noref
 
 When you look at the report, ::
 
@@ -164,10 +166,19 @@ When you look at the report, ::
 
 take particular note of the following -- ::
 
-   Assembly                     spades-assembly  megahit-assembly
+   Assembly                     spades.d_scaffolds  nanopore-ecoli-sc_scaffolds
+   # contigs (>= 0 bp)          152                 15
+   # contigs (>= 1000 bp)       80                  7
+   Total length (>= 0 bp)       4571384             4643870
+   Total length (>= 1000 bp)    4551778             4642289
+   # contigs                    89                  7
+   Largest contig               285527              3076878
+   Total length                 4558170             4642289
+   Reference length             4642289             4642289
+      ...
+   Misassembled contigs length  134677              0
+   # local misassemblies        6                   0
    ...
-   Misassembled contigs length  0                814643          
-   # local misassemblies        0                9               
-   # unaligned contigs          9 + 0 part       7 + 14 part     
-   Unaligned length             6453             7404            
-   Genome fraction (%)          100.000          99.833          
+   Genome fraction (%)          98.161              99.923
+   Duplication ratio            1.000               1.001
+   # mismatches per 100 kbp     3.36                0.00
