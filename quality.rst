@@ -130,7 +130,7 @@ you need to copy them to your local computer to do that.  We'll show
 you that tomorrow.  But! we can show you what they look like, because
 I've made copiesd of them for you:
 
-* `0Hour_ATCACG_L002_R1_001.extract_fastqc/fastqc_report.html <http://2015-may-nonmodel.readthedocs.org/en/latest/_static/0Hour_ATCACG_L002_R1_001.extract_fastqc/fastqc_report.html>`__
+* `ECOLI_R1_fastqc/fastqc_report.html <http://2015-sep-microbial.readthedocs.org/en/latest/_static/ECOLI_R1_fastqc/fastqc_report.html>`__
 * `0Hour_ATCACG_L002_R2_001.extract_fastqc/fastqc_report.html <http://2015-may-nonmodel.readthedocs.org/en/latest/_static/0Hour_ATCACG_L002_R2_001.extract_fastqc/fastqc_report.html>`__
 
 Questions:
