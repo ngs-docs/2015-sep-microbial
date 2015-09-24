@@ -18,7 +18,7 @@ folder.  Move it onto your desktop and rename it to 'amazon.pem'.
 
 Next, start Terminal (in Applications... Utilities...) and type::
 
-  chmod og-rwx ~/Desktop/amazon.pem
+  chmod og-rwx ~/Downloads/amazon.pem
 
 to set the permissions on the private key file to "closed to all evildoers".
 
