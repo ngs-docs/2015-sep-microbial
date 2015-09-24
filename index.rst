@@ -3,18 +3,20 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the labibi demo site!
-================================
+2015 / September / Microbial genomics and transcriptomics
+=========================================================
+
+This workshop was given on Sep 24th and 25th, 2015, by C. Titus Brown
+and Ben Johnson.  See `the workshop organization page
+<http://dib-training.readthedocs.org/en/pub/2015-09-24-microbes.html>`__
+for more information, or `contact Titus directly
+<mailto:ctbrown@ucdavis.edu>`__.
 
 .. toctree::
    :maxdepth: 2
 
-   refvsnoref.rst
-   introday2.rst
-   projectsetup.rst
-   qctrim.rst
-   aligncount.rst
-   diffexp.rst
+   amazon/index
+   transcriptomics
 
 Indices and tables
 ==================
