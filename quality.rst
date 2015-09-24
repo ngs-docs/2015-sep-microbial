@@ -131,7 +131,7 @@ you that tomorrow.  But! we can show you what they look like, because
 I've made copiesd of them for you:
 
 * `ECOLI_R1_fastqc/fastqc_report.html <http://2015-sep-microbial.readthedocs.org/en/latest/_static/ECOLI_R1_fastqc/fastqc_report.html>`__
-* `0Hour_ATCACG_L002_R2_001.extract_fastqc/fastqc_report.html <http://2015-may-nonmodel.readthedocs.org/en/latest/_static/0Hour_ATCACG_L002_R2_001.extract_fastqc/fastqc_report.html>`__
+* `ECOLI_R2_fastqc/fastqc_report.html <http://2015-sep-microbial.readthedocs.org/en/latest/_static/ECOLI_R2_fastqc/fastqc_report.html>`__
 
 Questions:
 
@@ -200,8 +200,9 @@ Run FastQC again on the trimmed files::
 
 And now view my copies of these files: 
 
-* `0Hour_ATCACG_L002_R1_001.qc.fq_fastqc/fastqc_report.html <http://2015-may-nonmodel.readthedocs.org/en/latest/_static/0Hour_ATCACG_L002_R1_001.qc.fq_fastqc/fastqc_report.html>`__
-* `0Hour_ATCACG_L002_R2_001.qc.fq_fastqc/fastqc_report.html <http://2015-may-nonmodel.readthedocs.org/en/latest/_static/0Hour_ATCACG_L002_R2_001.qc.fq_fastqc/fastqc_report.html>`__
+* `ECOLI_R1.qc.fq_fastqc/fastqc_report.html <http://2015-sep-microbial.readthedocs.org/en/latest/_static/ECOLI_R1.qc.fq_fastqc/fastqc_report.html>`__
+* `ECOLI_R2.qc.fq_fastqc/fastqc_report.html <http://2015-sep-microbial.readthedocs.org/en/latest/_static/ECOLI_R2.qc.fq_fastqc/fastqc_report.html>`__
+* `ECOLI_orphans.qc.fq_fastqc/fastqc_report.html <http://2015-sep-microbial.readthedocs.org/en/latest/_static/ECOLI_orphans.qc.fq_fastqc/fastqc_report.html>`__
 
 Let's take a look at the output files::
 
