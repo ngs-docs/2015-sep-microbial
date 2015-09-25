@@ -121,7 +121,7 @@ FastQC
 
 Now let's generate the FastQC reports (What does that -o . thing do?)::
 
-	cd ../FastQC
+	cd ../QC/FastQC
 	for trimmedreads in ../Trimmomatic/*.fq.gz
 	do
 		fastqc -o . $trimmedreads
