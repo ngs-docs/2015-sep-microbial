@@ -190,4 +190,4 @@ Congratulations! We are now ready to do differential gene expression.
 
 ----
 
-Next: :doc:`diffexpr`
+Next: :doc:`diffexp`

@@ -12,9 +12,11 @@ a script to produce some diagnostic plots and output we could open in Excel if w
 
 Download the script::
 
-    cd ../DiffExp
-    wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/diffexpref.R
+    cd ~/TranscriptomicsWorkshop/DiffExp
+    wget https://raw.githubusercontent.com/ngs-docs/2015-sep-microbial/master/files/diffexpref.R
     
+(You can view the script contents `here <https://github.com/ngs-docs/2015-sep-microbial/blob/master/files/diffexpref.R>`__)
+
 To execute the script::
 
     R --vanilla --slave < diffexpref.R

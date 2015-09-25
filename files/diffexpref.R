@@ -94,7 +94,7 @@ dev.off()
 png('~/TranscriptomicsWorkshop/DiffExp/pyr7vspyr5BCVplot.png')
 plotBCV(p7_vs_p5, cex=1)
 dev.off()
-png('~/TranscriptomicsWorkshop/DiffExp/gly7vspyr5BCVplot.png')
+png('~/TranscriptomicsWorkshop/DiffExp/gly7vspyr7BCVplot.png')
 plotBCV(g7_vs_p7, cex=1)
 dev.off()
 
