@@ -91,7 +91,6 @@ You should be in the RawData folder currently. If you aren't::
 	
 Trim the reads by scripting! (What is happening in the first line? What are the parameters to trim? What in the world are we doing in the first place?!)::
 
-	TRIM=/mnt/Trimmomatic-0.33
 	for untrimmedreads in *.fq.gz
 	do
 		#get the file name
@@ -104,7 +103,7 @@ Trim the reads by scripting! (What is happening in the first line? What are the 
 		NEWTRIMFILE=${PREFIX}${FILENAME}
 		
 		#do the trimming
-		java -jar $TRIM/trimmomatic-0.33.jar SE $untrimmedreads ../QC/Trimmomatic/$NEWTRIMFILE.fq.gz \
+		TrimmomaticSE $untrimmedreads ../QC/Trimmomatic/$NEWTRIMFILE.fq.gz \
 		ILLUMINACLIP:$TRIM/adapters/TruSeq3-SE.fa:2:30:10 \
 		LEADING:3 \
 		TRAILING:3 \
