@@ -89,6 +89,10 @@ You should be in the RawData folder currently. If you aren't::
 
 	cd ~/TranscriptomicsWorkshop/RawData
 	
+Download the adapters file::
+
+	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/TruSeq3-SE.fa
+
 Trim the reads by scripting! (What is happening in the first line? What are the parameters to trim? What in the world are we doing in the first place?!)::
 
 	for untrimmedreads in *.fq.gz
