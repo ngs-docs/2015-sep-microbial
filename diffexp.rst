@@ -71,7 +71,12 @@ Download and install SPARTA::
 	cd SPARTA_Linux
 	mv ExampleData ..
 	
-Edit the configuration file by using the arrows to delete the two lines at the bottom and copy and paste this in::
+Edit the configuration file ``ConfigFile.txt`` by typing ::
+
+    nano ConfigFile.txt
+
+and using the arrows to delete the two lines at the bottom and copy
+and paste this in::
 
 	Reference_Condition_Files: mapgly7a.sam, mapgly7b.sam
 	Experimental_Condition_2_Files:mapgly5a.sam, mapgly5b.sam
