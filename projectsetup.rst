@@ -50,6 +50,11 @@ to ask questions and get answers (usually pretty quickly).  In particular,
 you should check out `seqanswers.com <http://seqanswers.com>`__ and
 `biostars <http://biostars.org>`__.
 
+Note, on Twitter, for microbiology, we suggest following `Nick Loman
+<https://twitter.com/pathogenomenick/>`__, `Torsten Seemann
+<https://twitter.com/torstenseemann>`__, and `Jonathan Eisen
+<https://twitter.com/phylogenomics>`__.
+
 .. _notebooks:
 
 Start a virtual notebook

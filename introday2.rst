@@ -61,7 +61,7 @@ To refresh your memory on some basic Linux/Unix commands, we will cover the basi
 	:align: center
 	:alt: Linux/Unix command list
 	
-*Ref. sheet from: `http://files.fosswire.com/2007/08/fwunixref.pdf <http://files.fosswire.com/2007/08/fwunixref.pdf>`__*
+(Ref. sheet from: `http://files.fosswire.com/2007/08/fwunixref.pdf <http://files.fosswire.com/2007/08/fwunixref.pdf>`__)
 
 ----
 
