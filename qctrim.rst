@@ -30,6 +30,7 @@ what the project will entail, save (Ctrl + O and then hit Enter/Return), and exi
 
 Download the data::
 
+	cd RawData
 	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly7a.fq.gz
 	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly7b.fq.gz
 	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly5a.fq.gz
