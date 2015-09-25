@@ -33,7 +33,7 @@ Align the trimmed reads with Bowtie
 Download the reference genome::
 
 	cd ~/TranscriptomicsWorkshop/Alignment
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/MtbCDC1551.fa
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/MtbCDC1551.fa
 	
 Build the index of the genome for bowtie to use to perform the mapping/alignment process::
 
@@ -126,7 +126,7 @@ annotated. This file tells the software the gene coordinates and strandedness.
 Download the .gtf file::
 
     cd ../TranscriptAbund
-    wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/MtbCDC1551.gtf
+    wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/MtbCDC1551.gtf
     
 Let's have a look at what the first few lines of this file look like::
 

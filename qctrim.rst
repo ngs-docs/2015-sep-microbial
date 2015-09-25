@@ -32,14 +32,14 @@ what the project will entail, save (Ctrl + O and then hit Enter/Return), and exi
 Download the data::
 
 	cd RawData
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly7a.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly7b.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly5a.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/gly5b.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/pyr7a.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/pyr7b.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/pyr5a.fq.gz
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/pyr5b.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/gly7a.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/gly7b.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/gly5a.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/gly5b.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/pyr7a.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/pyr7b.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/pyr5a.fq.gz
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/pyr5b.fq.gz
 	
 This is a subset of data from `Baker et al. <http://onlinelibrary.wiley.com/doi/10.1111/mmi.12688/abstract;jsessionid=BD049DD06022112AB9F13CF587989C0A.f02t03>`__.
 It contains the first 100,000 reads from a study looking at how *M. tuberculosis* changes its metabolism in response to different carbon sources at neutral and acidic pH.
@@ -93,7 +93,7 @@ You should be in the RawData folder currently. If you aren't::
 	
 Download the adapters file::
 
-	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/TruSeq3-SE.fa
+	wget http://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/microbial-2015-09-24/TruSeq3-SE.fa
 
 Trim the reads by scripting! (What is happening in the first line? What are the parameters to trim? What in the world are we doing in the first place?!)::
 
