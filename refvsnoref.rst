@@ -52,5 +52,3 @@ There are fewer workflows readily available for *de novo* transcriptome assembly
 	* khmer and Trinity - `<http://khmer.readthedocs.org/en/v2.0/>`__ and `<http://trinityrnaseq.github.io/>`__
 	
 	* Galaxy (drag and drop cloud computing GUI interface for NGS data analysis) - `<https://galaxyproject.org/>`__
-	
-	* What we will show today as a brief example
