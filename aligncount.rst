@@ -3,10 +3,10 @@
 Align and count gene features
 =============================
 
-Several aligners exist for mapping reads back to a reference genome (Bowtie, Bowtie2, BWA, SOAP, etc.).
+Several aligners exist for mapping reads back to a reference genome (Bowtie, Bowtie2, BWA, SOAP, TopHat, etc.).
 Each aligner was developed for a specific use case in mind and one should be aware of these
-differences. For example, Bowtie was optimized for identification of splice junctions. We
-don't have to worry about that for microbes, but the aligner itself works just fine even in
+differences. For example, TopHat (Bowtie) was optimized for identification of splice junctions. We
+don't have to worry about that for microbes, but the aligner itself (Bowtie) works just fine even in
 gene dense genomes like bacteria. Another caveat is there are *two* flavors of Bowtie: Bowtie1
 and Bowtie2. Bowtie1 seems to perform better for 50 bp reads while 100+ bp reads tend to
 be faster using Bowtie2.
