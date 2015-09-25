@@ -51,6 +51,16 @@ Scatter plots of significantly differentially expressed genes
 There is another neat way to visualize data through an online tool called `Degust <http://vicbioinformatics.com/degust/>`__.
 This is an excellent tool that tends to resemble Genespring in terms of producing similar plots.
 
+CSV files:
+
+:download:`download <./files/gly7_vs_gly5results.csv>` or `view <https://github.com/ngs-docs/2015-sep-microbial/blob/master/files/gly7_vs_gly5results.csv>`__
+
+:download:`download <./files/gly7_vs_pyr5results.csv>` or `view <https://github.com/ngs-docs/2015-sep-microbial/blob/master/files/gly7_vs_pyr5results.csv>`__
+
+:download:`download <./files/gly7_vs_pyr7results.csv>` or `view <https://github.com/ngs-docs/2015-sep-microbial/blob/master/files/gly7_vs_pyr7results.csv>`__
+
+:download:`download <./files/pyr7_vs_pyr5results.csv>` or `view <https://github.com/ngs-docs/2015-sep-microbial/blob/master/files/pyr7_vs_pyr5results.csv>`__
+
 Using an available workflow that links all of these steps together
 ------------------------------------------------------------------
 
