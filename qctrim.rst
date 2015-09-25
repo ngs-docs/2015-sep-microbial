@@ -108,7 +108,7 @@ Trim the reads by scripting! (What is happening in the first line? What are the 
 		
 		#do the trimming
 		TrimmomaticSE $untrimmedreads ../QC/Trimmomatic/$NEWTRIMFILE.fq.gz \
-		ILLUMINACLIP:$TRIM/adapters/TruSeq3-SE.fa:2:30:10 \
+		ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 \
 		LEADING:3 \
 		TRAILING:3 \
 		SLIDINGWINDOW:4:15 \
