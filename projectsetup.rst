@@ -46,7 +46,9 @@ x, y, and z.
 Also, be aware that tools and technology evolve quickly in this field. It's worth getting a Twitter account to interact
 with people who develop/perform these analyses and probing the literature for new/improved
 tools (they come out *frequently*). Further, Google is your friend and there are all kinds of resources (forums, etc.)
-to ask questions and get answers (usually pretty quickly).
+to ask questions and get answers (usually pretty quickly).  In particular,
+you should check out `seqanswers.com <http://seqanswers.com>`__ and
+`biostars <http://biostars.org>`__.
 
 .. _notebooks:
 
@@ -58,7 +60,7 @@ Let's have a look at the Markdown syntax and how you can use it to document your
 Markdown is a plain text format that can be rendered to HTML and is quite nice if working collaboratively,
 like on GitHub.
 
-I will use an example from Vince Buffalo's book "Bioinformatics Data Skills" (*highly recommended*)::
+I will use an example from Vince Buffalo's book `"Bioinformatics Data Skills" <http://www.amazon.com/Bioinformatics-Data-Skills-Reproducible-Research/dp/1449367372>`__ (*highly recommended*)::
 
 	# *Zea Mays* SNP Calling
 
@@ -97,7 +99,7 @@ I will use an example from Vince Buffalo's book "Bioinformatics Data Skills" (*h
  	- Trimmomatic
  	- Scythe
  	
-When this is rendered, it looks like `this <https://github.com/vsbuffalo/bds-files/blob/master/chapter-02-bioinformatics-projects/notebook.md>`__
+When this is rendered, it looks like `this <https://github.com/vsbuffalo/bds-files/blob/master/chapter-02-bioinformatics-projects/notebook.md>`__.
 
 Here are some Markdown editors for
 
@@ -111,3 +113,6 @@ publicly!
 
 `Markdown syntax guide <https://en.support.wordpress.com/markdown-quick-reference/>`__
 
+----
+
+Next: :doc:`qctrim`

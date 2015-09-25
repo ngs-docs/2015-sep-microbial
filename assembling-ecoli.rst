@@ -47,7 +47,7 @@ Now, let's run an assembly::
 
    spades.py --12 ecoli_ref-5m-trim.pe.fq.gz -s ecoli_ref-5m-trim.se.fq.gz -o spades.d
 
-This will take about 15 minutes; it should end with te following output::
+This will take about 15 minutes; it should end with the following output::
 
    * Corrected reads are in /mnt/assembly/spades.d/corrected/
    * Assembled contigs are in /mnt/assembly/spades.d/contigs.fasta (contigs.fastg)

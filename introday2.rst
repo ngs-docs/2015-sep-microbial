@@ -5,13 +5,13 @@ RNA-seq and Differential Gene Expression in Bacteria
 
 Today we have a few objectives we would like to cover:
 
-#. Set up a project for your data analysis for reproducible and robust analysis - :doc:`BKJ_projectsetup`
+#. Set up a project for your data analysis for reproducible and robust analysis - :doc:`projectsetup`
 
-#. Quality control and trimming of short RNA-seq reads - :doc:`BKJ_qctrim`
+#. Quality control and trimming of short RNA-seq reads - :doc:`qctrim`
 
-#. Workflows for reference-based and reference-free transcriptome analysis - :doc:`BKJ_aligncount` and :doc:`BKJ_refvsnoref`
+#. Workflows for reference-based and reference-free transcriptome analysis - :doc:`aligncount` and :doc:`refvsnoref`
 
-#. Differential gene expression and some potential pitfalls - :doc:`BKJ_diffexp`
+#. Differential gene expression and some potential pitfalls - :doc:`diffexp`
 
 
 Learning goals
@@ -26,9 +26,8 @@ Learning goals
 * Understand underlying assumptions and potential issues with differential gene expression
 
 
-At this point, go ahead and log back onto your EC2 instances that you were using yesterday.
-If you have forgotten how to log on, head back to the main page and follow the instructions
-from yesterday.
+At this point, go ahead and start up new m3.xlarge EC2 instances, as you did
+yesterday (see: :doc:`amazon/index`).
 
 Additional Resource - Basic Linux/Unix commands
 -----------------------------------------------
@@ -62,5 +61,8 @@ To refresh your memory on some basic Linux/Unix commands, we will cover the basi
 	:align: center
 	:alt: Linux/Unix command list
 	
-*Ref. sheet from: http://files.fosswire.com/2007/08/fwunixref.pdf*
+*Ref. sheet from: `http://files.fosswire.com/2007/08/fwunixref.pdf <http://files.fosswire.com/2007/08/fwunixref.pdf>`__*
 
+----
+
+Next: :doc:`projectsetup`

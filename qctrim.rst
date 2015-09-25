@@ -8,10 +8,11 @@ component of the workshop
 
 Update the machine and install some software::
 
-	sudo bash
-	cd /mnt
-	apt-get update
-	apt-get install -y git trimmomatic fastqc bowtie bwa build-essential python2.7-dev python-numpy python-htseq default-jre r-base r-base-dev r-bioc-edger
+    sudo chmod a+rwxt /mnt
+    sudo apt-get update
+    sudo apt-get install -y git trimmomatic fastqc bowtie bwa \
+         build-essential python2.7-dev python-numpy python-htseq default-jre \
+         r-base r-base-dev r-bioc-edger
 
 Make sure you're in your home directory and create the folders::
 
@@ -77,6 +78,7 @@ Inside the README::
 	pyr7a.fq.gz
 	pyr7b.fq.gz
 
+Now save (Ctrl + O and then hit Enter/Return), and exit (Ctrl + X).
 
 Great! Let's move on to quality control and trimming our reads.
 
