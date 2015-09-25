@@ -51,7 +51,7 @@ Install Artemis
 ===============
 
 Artemis is a graphical Java program to browse annotated genomes.
-It is a a bit like IGV but sepcifically designed for bacteria.
+It is a a bit like IGV but specifically designed for bacteria.
 You will need to install this on your desktop computer.
 You could run it remotely over SSH using X11 forwarding from Amazon
 but it is probably too slow to be useful.

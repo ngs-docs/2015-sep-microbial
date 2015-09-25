@@ -32,7 +32,7 @@ Align the trimmed reads with Bowtie
 
 Download the reference genome::
 
-	cd ../../Alignment
+	cd ~/TranscriptomicsWorkshop/Alignment
 	wget http://s3-us-west-1.amazonaws.com/microgenomicstranscriptomics/MtbCDC1551.fa
 	
 Build the index of the genome for bowtie to use to perform the mapping/alignment process::
@@ -44,17 +44,19 @@ so we will unzip them now and hand them to bowtie (the aligner) unzipped.
 
 We could do this in individual lines by typing something like::
 
+    # (don't run this!)
     gunzip -c gly7a.fq.gz > gly7a.fq
     
 But this would be rather tedious to do this for every file. Then we have to move the files
 to our Alignment folder by typing something like::
 
+    # (don't run this!)
     mv gly7a.fq ~/TranscriptomicsWorkshop/Alignment
     
 But again, this would be rather tedious to do... So what we will do is script it and combine
 the decompressing with moving the file into a single command with &&. This is *really* useful
 in a Linux type system to string two commands together. What it does is say "if the command
-on the left of the && works, then do the command on the right of the &&. Finally, the . in
+to the left of the && works, then do the command to the right of the &&." Finally, the . in
 the move (mv) command means "the folder you are in right now".
 
 So, let's do it!
@@ -74,6 +76,7 @@ we can add a new one. To do this, we can use the move (mv) command again to rena
 
 The syntax looks something like this as an example::
 
+    # (don't run this!)
     mv trimmedgly7a.fq gly7a.fq
     
 So essentially, you have your command, mv and then the file you want to rename and then the new
@@ -84,7 +87,7 @@ But to do this for every file is a pain and error prone. Script it!::
 	#rename the files by stripping off the trimmed prefix
 	for renametrim in *.fq
 	do
-		LESSPREFIX=`basename ${renametrim//trimmed/}`
+		LESSPREFIX=$(basename ${renametrim//trimmed/})
 		mv $renametrim $LESSPREFIX
 	done
 
@@ -93,6 +96,7 @@ the alignment of the reads. Bowtie has **a lot** of options to tailor the alignm
 Here we only specifiy the -S option to let Bowtie know that we want our output in .sam format. The
 general syntax for running bowtie is as follows::
 
+    # (don't run this!)
     bowtie -S [index file prefix from the bowtie-build command] [your input file] > [your output file that ends in .sam]
 
 We have another new thing that looks like the greater than (>) sign. This says "take the output
@@ -103,7 +107,7 @@ So let's align the reads::
 	#align the reads
 	for alignment in *.fq
 	do	
-		FILENAME=`basename ${alignment%.*}`
+		FILENAME=$(basename ${alignment%.*})
 		PREFIX=align
 		NEWALIGNFILE=${PREFIX}${FILENAME}
 		bowtie -S MtbCDC1551 $FILENAME.fq > $NEWALIGNFILE.sam
@@ -136,23 +140,24 @@ It should look something like this::
 	.
 	.
 
-We can see the entire exon, it's coordinates, the strand, gene_id, gene_name, etc. The software
+We can see the entire exon, its coordinates, the strand, gene_id, gene_name, etc. The software
 we will use (HTSeq) requires this file to "know" how to interpret the alignment file to count
 whether a transcript was observed.
 
 We need to strip off prefixes again and we encounter another new command called copy (cp).
 The general syntax is similar to move (mv)::
 
+    # (don't run this!)
     cp [the file you want to copy] [where you want to copy the file to]
     
 So let's take off the prefixes and copy the stripped files to the TranscriptAbund folder::
 
     #strip off the align prefix and move the files into the TranscriptAbund folder
-	for renamealign in ../Alignment/*.sam
-	do
-		LESSPREFIX=`basename ${renamealign//align/}`
-		cp $renamealign ../TranscriptAbund/$LESSPREFIX
-	done
+    for renamealign in ../Alignment/*.sam
+    do
+    	LESSPREFIX=$(basename ${renamealign//align/})
+    	cp $renamealign ../TranscriptAbund/$LESSPREFIX
+    done
 	
 HTSeq has a spectacular function called htseq-count. This function will quantify transcript
 abundances for us. It also has several options we can specify, with two particularly important
@@ -172,7 +177,7 @@ To run the software::
 
 	for counts in *.sam
 	do
-		FILENAME=`basename ${counts%.*}`
+		FILENAME=$(basename ${counts%.*})
 		PREFIX=abundcount_
 		NEWMAPFILE=${PREFIX}${FILENAME}
 		htseq-count -m intersection-nonempty --stranded=reverse $FILENAME.sam MtbCDC1551.gtf > $NEWMAPFILE.counts
@@ -182,3 +187,7 @@ To run the software::
 	rm *.sam
 	
 Congratulations! We are now ready to do differential gene expression. 
+
+----
+
+Next: :doc:`diffexpr`

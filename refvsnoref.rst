@@ -34,9 +34,9 @@ Several workflows can be utilized for this type of analysis, including:
 Reference-free transcriptome analysis
 -------------------------------------
 
-The approach for reference-free (no good reference genome and not enough mRNA-seq data for
-assembled transcriptomes) is slightly different and an entirely different animal than reference-based
-approaches. The process is related and generally can follow this type of workflow:
+The approach for reference-free (no good reference genome and not enough pre-existing mRNA-seq data for
+assembled transcriptomes) is an entirely different animal than reference-based
+approaches. The process is related and generally can follow this type of workflow (this is an example from eukaryotes):
 
 .. image:: ./figures/nonmodel-rnaseq-pipeline.png
 	:align: center
@@ -52,3 +52,7 @@ There are fewer workflows readily available for *de novo* transcriptome assembly
 	* khmer and Trinity - `<http://khmer.readthedocs.org/en/v2.0/>`__ and `<http://trinityrnaseq.github.io/>`__
 	
 	* Galaxy (drag and drop cloud computing GUI interface for NGS data analysis) - `<https://galaxyproject.org/>`__
+	
+	* What we will show today as a brief example
+
+Next: :doc:`introday2`

@@ -8,10 +8,11 @@ component of the workshop
 
 Update the machine and install some software::
 
-	sudo bash
-	cd /mnt
-	apt-get update
-	apt-get install -y git trimmomatic fastqc bowtie bwa build-essential python2.7-dev python-numpy python-htseq default-jre r-base r-base-dev r-bioc-edger
+    sudo chmod a+rwxt /mnt
+    sudo apt-get update
+    sudo apt-get install -y git trimmomatic fastqc bowtie bwa \
+         build-essential python2.7-dev python-numpy python-htseq default-jre \
+         r-base r-base-dev r-bioc-edger
 
 Make sure you're in your home directory and create the folders::
 
@@ -48,7 +49,6 @@ The data are in FASTQ format and look similar to the reads we used yesterday.
 Before we move on, let's create another README in the data folder and copy and paste the above lines
 describing the data, how we got the data, and include the date. Something like this::
 
-    cd RawData
     nano README.txt
     
 Inside the README::
@@ -77,6 +77,7 @@ Inside the README::
 	pyr7a.fq.gz
 	pyr7b.fq.gz
 
+Now save (Ctrl + O and then hit Enter/Return), and exit (Ctrl + X).
 
 Great! Let's move on to quality control and trimming our reads.
 
@@ -99,7 +100,7 @@ Trim the reads by scripting! (What is happening in the first line? What are the 
 	for untrimmedreads in *.fq.gz
 	do
 		#get the file name
-		FILENAME=`basename ${untrimmedreads%.*.*}`
+		FILENAME=$(basename ${untrimmedreads%.*.*})
 		
 		#set a prefix to make understanding what has been done to the file easier
 		PREFIX=trimmed
@@ -164,3 +165,4 @@ This is what it looks like:
 	
 FaQCs takes a rather long time to run, but produces a nice pdf report when it's done.
     
+Next: :doc:`aligncount`
