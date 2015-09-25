@@ -49,7 +49,6 @@ The data are in FASTQ format and look similar to the reads we used yesterday.
 Before we move on, let's create another README in the data folder and copy and paste the above lines
 describing the data, how we got the data, and include the date. Something like this::
 
-    cd RawData
     nano README.txt
     
 Inside the README::
@@ -101,7 +100,7 @@ Trim the reads by scripting! (What is happening in the first line? What are the 
 	for untrimmedreads in *.fq.gz
 	do
 		#get the file name
-		FILENAME=`basename ${untrimmedreads%.*.*}`
+		FILENAME=$(basename ${untrimmedreads%.*.*})
 		
 		#set a prefix to make understanding what has been done to the file easier
 		PREFIX=trimmed
@@ -166,3 +165,4 @@ This is what it looks like:
 	
 FaQCs takes a rather long time to run, but produces a nice pdf report when it's done.
     
+Next: :doc:`aligncount`
