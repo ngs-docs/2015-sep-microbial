@@ -187,3 +187,7 @@ To run the software::
 	rm *.sam
 	
 Congratulations! We are now ready to do differential gene expression. 
+
+----
+
+Next: :doc:`diffexpr`
